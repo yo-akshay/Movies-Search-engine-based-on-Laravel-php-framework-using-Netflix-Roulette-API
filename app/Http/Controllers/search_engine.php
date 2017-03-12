@@ -79,16 +79,7 @@ class search_engine extends Controller
 
 						// convert response
 						$output = json_decode($output);
-						if(key($output)=="errorcode")
-						{
-							foreach($output as $key =>$row)
-							{
-									echo "<p>$key  :  $row";
-										echo '<br>';
-							}
-						}
-						else
-						{
+						
 							foreach($output as $value)
 							{
 								
@@ -130,7 +121,7 @@ class search_engine extends Controller
 								}
 								echo "<br><br><br><br><br><br>";
 							}
-						}
+						
 						
 						curl_close($ch);
 					}
@@ -144,16 +135,6 @@ class search_engine extends Controller
 						// convert response
 						$output = json_decode($output);
 						echo "<br><br>";
-						if(key($output)=="errorcode")
-						{
-							foreach($output as $key =>$row)
-							{
-									echo "<p>$key  :  $row";
-										echo '<br>';
-							}
-						}
-						else
-						{
 							foreach($output as $value)
 							{
 								
@@ -196,7 +177,6 @@ class search_engine extends Controller
 								
 								echo "<br><br><br><br><br><br>";
 							}
-						}
 						curl_close($ch);
 					}
 				}
