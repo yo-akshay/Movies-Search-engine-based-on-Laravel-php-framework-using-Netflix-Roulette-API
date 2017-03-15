@@ -1,11 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Input;
-
 class search_engine extends Controller
 {
     //
@@ -26,7 +22,6 @@ class search_engine extends Controller
 						curl_setopt($ch, CURLOPT_URL, "http://netflixroulette.net/api/api.php?title=".$Title); 
 						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 						$output = curl_exec($ch);   
-
 						// convert response
 						$output = json_decode($output);
 						
@@ -76,10 +71,18 @@ class search_engine extends Controller
 						curl_setopt($ch, CURLOPT_URL, "http://netflixroulette.net/api/api.php?director=".$director); 
 						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 						$output = curl_exec($ch);   
-
 						// convert response
 						$output = json_decode($output);
-						
+						if(is_object($output) && isset($output->errorcode))
+						{
+							foreach($output as $key =>$row)
+							{
+								echo "<p>$key  :  $row";
+										echo '<br>';
+							}
+						}
+						else
+						{
 							foreach($output as $value)
 							{
 								
@@ -121,7 +124,7 @@ class search_engine extends Controller
 								}
 								echo "<br><br><br><br><br><br>";
 							}
-						
+						}
 						
 						curl_close($ch);
 					}
@@ -131,10 +134,19 @@ class search_engine extends Controller
 						curl_setopt($ch, CURLOPT_URL, "http://netflixroulette.net/api/api.php?actor=".$Actor); 
 						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 						$output = curl_exec($ch);   
-
 						// convert response
 						$output = json_decode($output);
 						echo "<br><br>";
+						if(is_object($output) && isset($output->errorcode))
+						{
+							foreach($output as $key =>$row)
+							{
+								echo "<p>$key  :  $row";
+										echo '<br>';
+							}
+						}
+						else
+						{
 							foreach($output as $value)
 							{
 								
@@ -177,6 +189,7 @@ class search_engine extends Controller
 								
 								echo "<br><br><br><br><br><br>";
 							}
+						}
 						curl_close($ch);
 					}
 				}
