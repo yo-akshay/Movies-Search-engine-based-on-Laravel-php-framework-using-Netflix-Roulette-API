@@ -1,3 +1,11 @@
+A simple search engine that searches movies from netflix by using Netflix Roulette API . In this search engine you can search movies based on it's actors ,it's Title and by the director of the movie. This project is programmed in Laravel php framework.
+
+Screenshots
+![alt tag](https://github.com/yo-akshay/Movies-Search-engine-based-on-Laravel-php-framework-using-Netflix-Roulette-API/blob/master/screenshot1.png)
+
+![alt tag](https://github.com/yo-akshay/Movies-Search-engine-based-on-Laravel-php-framework-using-Netflix-Roulette-API/blob/master/search_results.png)
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
